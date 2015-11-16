@@ -29,5 +29,5 @@ You must have the latest version of Xcode and Cocoapods installed.
 *  Investigate building custom renderers (views) that can respond to `intrinsicContentSize`,
    `layoutSubviews`; has sane values for content-hugging and compression-resistance, etc. [This
    post](http://stackoverflow.com/a/15978951/305340) on SO contains a mostly exhaustive list of
-   concerns for AutoLayout.
+   concerns for AutoLayout. Also, find ways to leverage @IBDesignable and @IBInspectable.
 
