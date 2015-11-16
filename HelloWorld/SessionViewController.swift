@@ -71,9 +71,9 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
     func sessionDidDisconnect(session: OTSession!) {
         print("Session disconnected")
         
-        //publisher.view.removeFromSuperview()
+        publisher.view.removeFromSuperview()
         
-        //subscriber?.view.removeFromSuperview()
+        subscriber?.view.removeFromSuperview()
         subscriber = nil
     }
     
@@ -99,14 +99,14 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
             return
         }
         
-        //subscriberViewContainer.addSubview(subscriber!.view)
+        subscriberViewContainer.addSubview(subscriber!.view)
     }
     
     func session(session: OTSession!, streamDestroyed stream: OTStream!) {
         print("Stream destroyed")
         
         // TODO: repeated code from sessionDidDisconnect
-        //subscriber?.view.removeFromSuperview()
+        subscriber?.view.removeFromSuperview()
         subscriber = nil
     }
     

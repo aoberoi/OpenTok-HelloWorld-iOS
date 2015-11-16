@@ -27,30 +27,55 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov5-ER-nLy">
-                                <rect key="frame" x="20" y="57" width="560" height="420"/>
+                                <rect key="frame" x="134" y="57" width="332" height="249"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ov5-ER-nLy" secondAttribute="height" multiplier="4:3" id="Feq-4T-t81"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NF-RL-Kkj">
+                                <rect key="frame" x="258" y="314" width="84" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jte-nc-di2">
+                                <rect key="frame" x="134" y="343" width="332" height="249"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jte-nc-di2" secondAttribute="height" multiplier="4:3" id="jQg-xP-lQo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jte-nc-di2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3VG-90-HE1"/>
+                            <constraint firstItem="Jte-nc-di2" firstAttribute="top" secondItem="5NF-RL-Kkj" secondAttribute="bottom" constant="8" id="4mi-cL-ZMj"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" priority="250" id="H6c-aU-OeB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ov5-ER-nLy" secondAttribute="bottom" priority="750" constant="8" id="HHW-dm-rnj"/>
+                            <constraint firstItem="5NF-RL-Kkj" firstAttribute="top" secondItem="ov5-ER-nLy" secondAttribute="bottom" constant="8" id="Hhd-Oj-TQt"/>
+                            <constraint firstItem="Jte-nc-di2" firstAttribute="height" secondItem="ov5-ER-nLy" secondAttribute="height" id="Hy6-5b-F5u"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="top" secondItem="FJQ-Vh-Uar" secondAttribute="bottom" constant="8" id="J9a-Rp-M2V"/>
+                            <constraint firstItem="Jte-nc-di2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="750" id="JDv-bJ-wBg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jte-nc-di2" secondAttribute="trailing" priority="250" id="NOr-Ga-Rjp"/>
+                            <constraint firstItem="Jte-nc-di2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="250" id="O5a-Sy-tv1"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Jte-nc-di2" secondAttribute="trailing" priority="750" id="SCn-Up-6Vr"/>
+                            <constraint firstItem="5NF-RL-Kkj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UxB-KH-Jd6"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" priority="750" id="Uye-an-E1f"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="250" id="ifA-CJ-rYL"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lNa-oT-6wP"/>
                             <constraint firstItem="FJQ-Vh-Uar" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="paN-zp-5Cq"/>
                             <constraint firstItem="ov5-ER-nLy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="750" id="qBr-Pa-cTe"/>
                             <constraint firstItem="FJQ-Vh-Uar" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="vOs-Kw-DZQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Jte-nc-di2" secondAttribute="bottom" priority="750" constant="8" id="vjp-Nh-r3g"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="publisherViewContainer" destination="ov5-ER-nLy" id="iiM-AW-ce1"/>
+                        <outlet property="subscriberViewContainer" destination="Jte-nc-di2" id="3QW-BI-op2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
