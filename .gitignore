@@ -1,0 +1,6 @@
+# Application configuration: substitute values in Config.plist.sample and rename to Config.plist
+Config.plist
+
+xcuserdata/
+
+/Pods
