@@ -3,12 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>HelloWorldSession</key>
-	<dict/>
-	<key>apiKey</key>
-	<string></string>
-	<key>sessionId</key>
-	<string></string>
-	<key>token</key>
-	<string></string>
+	<dict>
+		<key>apiKey</key>
+		<string></string>
+		<key>sessionId</key>
+		<string></string>
+		<key>token</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>
