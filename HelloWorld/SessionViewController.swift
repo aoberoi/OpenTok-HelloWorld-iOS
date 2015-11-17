@@ -43,6 +43,10 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
         toggleConnect(self)
     }
 
+    // NOTE: It would be nicer if this view controller could "observe" session.sessionConnectionStatus
+    //       directly, and update its enabled and title properties accordingly. KVO is supposed to
+    //       provide that type of functionality, but KVO has become de-empahsized in modern ObjC and
+    //       is super kludgey in Swift. See also: https://github.com/slazyk/Observable-Swift
     @IBAction func toggleConnect(sender: AnyObject) {
         
         switch session.sessionConnectionStatus {
@@ -58,8 +62,7 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
             
             toggleConnectButton.title = "Disconnecting..."
             toggleConnectButton.enabled = false
-            
-            break
+
         case OTSessionConnectionStatus.NotConnected:
             
             var connectError: OTError?
@@ -72,10 +75,8 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
             
             toggleConnectButton.title = "Connecting..."
             toggleConnectButton.enabled = false
-            break
         default:
             print("Cannot toggle connect with session connection status: \(session.sessionConnectionStatus)")
-            break
         }
     }
 
