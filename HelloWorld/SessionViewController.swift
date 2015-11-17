@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate {
+class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate, UIBarPositioningDelegate {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -28,6 +28,7 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
     
     @IBOutlet weak var publisherViewContainer: UIView!
     @IBOutlet weak var subscriberViewContainer: UIView!
+    @IBOutlet weak var toggleConnectButton: UIBarButtonItem!
     
     override func viewDidLayoutSubviews() {
         publisher.view.frame = publisherViewContainer.bounds
@@ -37,21 +38,56 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        var connectError: OTError?
-        session.connectWithToken(sessionConfig["token"]!, error: &connectError)
-        
-        guard (connectError == nil) else {
-            print("Connect Error: \(connectError!.description)")
-            return
-        }
-        
         publisherViewContainer.addSubview(publisher.view)
+        
+        toggleConnect(self)
+    }
+
+    @IBAction func toggleConnect(sender: AnyObject) {
+        
+        switch session.sessionConnectionStatus {
+        case OTSessionConnectionStatus.Connected:
+            
+            var disconnectError: OTError?
+            session.disconnect(&disconnectError)
+            
+            guard (disconnectError == nil) else {
+                print("Disconnect Error: \(disconnectError!.description)")
+                return
+            }
+            
+            toggleConnectButton.title = "Disconnecting..."
+            toggleConnectButton.enabled = false
+            
+            break
+        case OTSessionConnectionStatus.NotConnected:
+            
+            var connectError: OTError?
+            session.connectWithToken(sessionConfig["token"]!, error: &connectError)
+            
+            guard (connectError == nil) else {
+                print("Connect Error: \(connectError!.description)")
+                return
+            }
+            
+            toggleConnectButton.title = "Connecting..."
+            toggleConnectButton.enabled = false
+            break
+        default:
+            print("Cannot toggle connect with session connection status: \(session.sessionConnectionStatus)")
+            break
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Bar Positioning Delegate
+    
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return .TopAttached
     }
     
     // MARK: Session Delegate
@@ -66,15 +102,19 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
             print("Publish Error: \(publishError!.description)")
             return
         }
+        
+        toggleConnectButton.title = "Disconnect"
+        toggleConnectButton.enabled = true
     }
     
     func sessionDidDisconnect(session: OTSession!) {
         print("Session disconnected")
         
-        publisher.view.removeFromSuperview()
-        
         subscriber?.view.removeFromSuperview()
         subscriber = nil
+        
+        toggleConnectButton.title = "Connect"
+        toggleConnectButton.enabled = true
     }
     
     func session(session: OTSession!, didFailWithError error: OTError!) {
