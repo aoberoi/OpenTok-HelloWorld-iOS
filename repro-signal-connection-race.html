@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>OpenTok Demo</title>
+  <script src='//static.opentok.com/v2/js/opentok.min.js'></script>
+  <script>
+    var apiKey = 'REPLACEME';
+    var sessionId = 'REPLACEME';
+    var token = 'REPLACEME';
+    var session = OT.initSession(sessionId);
+
+    session.on('connectionCreated', function(event) {
+      session.signal({
+        type: 'foo',
+        data: 'bar',
+        to: event.connection
+      }, function(error) {
+        if (error) return console.error(error);
+      });
+    });
+
+    session.connect(apiKey, token, function(error) {
+      if (error) return console.error(error);
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>

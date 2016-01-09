@@ -110,6 +110,18 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
         subscriber = nil
     }
     
+    func session(session: OTSession!, connectionCreated connection: OTConnection!) {
+        print("Connection created: \(connection.connectionId)")
+    }
+    
+    func session(session: OTSession!, receivedSignalType type: String!, fromConnection connection: OTConnection?, withString string: String!) {
+        if let connection = connection {
+            print("Session recieved signal of type: \(type), from connection: \(connection.connectionId), with string: \(string)")
+        } else {
+            print("Session recieved signal without connection")
+        }
+    }
+    
     // MARK: Publisher Delegate
     
     func publisher(publisher: OTPublisherKit!, didFailWithError error: OTError!) {
