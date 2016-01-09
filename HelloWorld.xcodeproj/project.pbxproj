@@ -13,7 +13,6 @@
 		929119851BF9BAE300DDF69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929119841BF9BAE300DDF69E /* Assets.xcassets */; };
 		929119881BF9BAE300DDF69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929119861BF9BAE300DDF69E /* LaunchScreen.storyboard */; };
 		929119951BF9BD7400DDF69E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 929119941BF9BD7400DDF69E /* Config.plist */; };
-		9291199A1BFA337F00DDF69E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 929119991BFA337F00DDF69E /* README.md */; };
 		E12B803CE3B8657DB11EC263 /* libPods-HelloWorld.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001BB6AC07358C21140358AC /* libPods-HelloWorld.a */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +140,7 @@
 				TargetAttributes = {
 					929119791BF9BAE300DDF69E = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6799GM77BZ;
 					};
 				};
 			};
@@ -229,7 +229,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9291199A1BFA337F00DDF69E /* README.md in Sources */,
 				929119801BF9BAE300DDF69E /* SessionViewController.swift in Sources */,
 				9291197E1BF9BAE300DDF69E /* AppDelegate.swift in Sources */,
 			);
@@ -347,8 +346,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HelloWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokbox.HelloWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,8 +364,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HelloWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokbox.HelloWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
