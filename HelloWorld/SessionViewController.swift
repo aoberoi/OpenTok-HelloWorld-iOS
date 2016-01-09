@@ -112,6 +112,14 @@ class SessionViewController: UIViewController, OTSessionDelegate, OTPublisherDel
     
     func session(session: OTSession!, connectionCreated connection: OTConnection!) {
         print("Connection created: \(connection.connectionId)")
+        
+        var signalError: OTError?
+        session.signalWithType("foo", string: "bar", connection: connection, error: &signalError)
+        
+        guard (signalError == nil) else {
+            print("Signal error: \(signalError!.description)")
+            return
+        }
     }
     
     func session(session: OTSession!, receivedSignalType type: String!, fromConnection connection: OTConnection?, withString string: String!) {
